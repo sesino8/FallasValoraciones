@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head lang="es" dir="ltr">
+  <meta charset="utf-8">
+  <title>Datos Abiertos con NodeJS</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.0/proj4.js"></script>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+  <script src="js/buscar.js"></script>
+
+  <style>
+    @import url("css/busqueda.css");
+  </style>
+
+</head>
+
+<body>
+
+  <h1> Fallas </h1>
+
+  <div class="busqueda">
+    
+
+
+    <!-- <form method="POST" action="/puntuaciones">
+
+      <input type="text" name="idFalla">
+      <input type="text" name="ip">
+      <input type="text" name="puntuacion">
+
+      <input type="submit">
+    </form> -->
+
+    <form id="busquedaform">
+      <select id="secciones" name="select">
+        <option>Todas</option>
+      </select>
+      <input type="button" value="Buscar">
+    </form>
+
+    <form name="imagenFalla">
+      <input type="radio" name="radio" id="boceto" checked="checked" value="boceto_i"> Falla Mayor</input>
+      <input type="radio" name="radio" id="boceto_i" value="boceto">Infantil</input><br>
+    </form>
+
+    <form name="ano">
+      <input type="text" id="anoInicio"></input>
+      <input type="text" id="anoFinal"></input>
+    </form>
+  </div>
+
+  <div class="resultados">
+    
+  </div>
+
+  <div id="mapa">
+  </div>
+
+
+</body>
+
+</html>
