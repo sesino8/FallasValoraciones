@@ -53,6 +53,10 @@ function buscar() {
 
 		resultado.forEach(falla => {
 
+			anoMin = document.getElementById("anoInicio").value;
+			anoMax = document.getElementById("anoFinal").value;
+
+
 			if (document.getElementById("boceto_i").checked) {
 				fallaAComprobar = falla.properties.boceto_i;
 				seccionBuena = falla.properties.seccion_i;
@@ -64,41 +68,42 @@ function buscar() {
 				seccionBuena = falla.properties.seccion;
 			}
 
-
 			if (seccionBuena == seccionAComprobar || seccionAComprobar == "Todas") {
 
-				let celdaResultado = document.createElement("div");
-				celdaResultado.classList.add("celdas");
-				celdaResultado.setAttribute("data-idfalla", falla.properties.id)
-				let resultadoFallas = document.createElement("p");
-				resultadoFallas.innerText = falla.properties.nombre;
-				let imagenFalla = document.createElement("img");
-				imagenFalla.src = fallaAComprobar; // Quedan hacer cosas aqui
+				if ((falla.properties.anyo_fundacion <= anoMax && falla.properties.anyo_fundacion >= anoMin) || (anoMin == "" && anoMax == "")) {
 
-				celdaResultado.appendChild(resultadoFallas);
-				celdaResultado.appendChild(imagenFalla);
-				let valoracion = document.createElement("div");
-				valoracion.classList.add("valoracion");
-				for (let index = 1; index <= 5; index++) {
-					let estrella = document.createElement("button");
-					estrella.addEventListener("click", function () {
-						colorEstrellaPulsada(this, index);
-					});
-					estrella.innerText = '★ ';
-					estrella.dataset.index = index;
-					estrella.dataset.fallaId = falla.properties.id;
-					estrella.setAttribute("value", index)
-					estrella.classList.add("estrellas");
-					valoracion.appendChild(estrella);
+					let celdaResultado = document.createElement("div");
+					celdaResultado.classList.add("celdas");
+					celdaResultado.setAttribute("data-idfalla", falla.properties.id)
+					let resultadoFallas = document.createElement("p");
+					resultadoFallas.innerText = falla.properties.nombre;
+					let imagenFalla = document.createElement("img");
+					imagenFalla.src = fallaAComprobar;
+
+					celdaResultado.appendChild(resultadoFallas);
+					celdaResultado.appendChild(imagenFalla);
+					let valoracion = document.createElement("div");
+					valoracion.classList.add("valoracion");
+					for (let index = 1; index <= 5; index++) {
+						let estrella = document.createElement("button");
+						estrella.addEventListener("click", function () {
+							colorEstrellaPulsada(this, index);
+						});
+						estrella.innerText = '★ ';
+						estrella.dataset.index = index;
+						estrella.dataset.fallaId = falla.properties.id;
+						estrella.setAttribute("value", index)
+						estrella.classList.add("estrellas");
+						valoracion.appendChild(estrella);
+					}
+					celdaResultado.appendChild(valoracion);
+					let ubicacion = document.createElement("button");
+					ubicacion.innerText = "Ubicación";
+					ubicacion.onclick = function () { buscarUbicacion(falla.geometry.coordinates, falla.properties.boceto); };
+					ubicacion.classList.add("bntUbicacion");
+					celdaResultado.appendChild(ubicacion);
+					listado.appendChild(celdaResultado);
 				}
-				celdaResultado.appendChild(valoracion);
-				let ubicacion = document.createElement("button");
-				ubicacion.innerText = "Ubicación";
-				ubicacion.onclick = function () { buscarUbicacion(falla.geometry.coordinates, falla.properties.boceto); };
-				ubicacion.classList.add("bntUbicacion");
-				celdaResultado.appendChild(ubicacion);
-				listado.appendChild(celdaResultado);
-
 			}
 		});
 	});
@@ -145,12 +150,12 @@ function buscarUbicacion(coordenadas, urlImagen) {
 		map.remove();
 
 		padreMapa = document.getElementById('mapa').parentNode;
-	padreMapa.removeChild(mapaContainer);
+		padreMapa.removeChild(mapaContainer);
 
-	var newMapaContainer = document.createElement("div");
-	newMapaContainer.setAttribute("id", "mapa");
-	padreMapa.appendChild(newMapaContainer);
-	
+		var newMapaContainer = document.createElement("div");
+		newMapaContainer.setAttribute("id", "mapa");
+		padreMapa.appendChild(newMapaContainer);
+
 
 	});
 
