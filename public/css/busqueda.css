@@ -16,6 +16,14 @@ h1 {
 form {
   text-align: center;
   margin: 2%;
+  font-size: 25px;
+}
+form select {
+  height: 30px;
+  width: 120px !important;
+}
+form input {
+  height: 30px;
 }
 
 .resultados {
@@ -33,8 +41,8 @@ form {
   border-bottom: 0 none;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
 }
-.resultados .celdas p {
-  font-size: 12px;
+.resultados .celdas h4 {
+  font-size: 20px;
   font: Helvetica, sans-serif;
   text-align: center;
 }

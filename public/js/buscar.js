@@ -75,7 +75,7 @@ function buscar() {
 					let celdaResultado = document.createElement("div");
 					celdaResultado.classList.add("celdas");
 					celdaResultado.setAttribute("data-idfalla", falla.properties.id)
-					let resultadoFallas = document.createElement("p");
+					let resultadoFallas = document.createElement("h4");
 					resultadoFallas.innerText = falla.properties.nombre;
 					let imagenFalla = document.createElement("img");
 					imagenFalla.src = fallaAComprobar;
