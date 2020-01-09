@@ -81,8 +81,9 @@ form input {
   margin-top: 5%;
 }
 .resultados .celdas {
-  width: 50%;
+  width: 70%;
   height: 600px;
+  margin: 15%;
   box-shadow: 11px 8px 17px -2px rgba(0, 0, 0, 0.75);
   border: 1px solid black;
 }
@@ -99,7 +100,7 @@ form input {
   margin-left: auto;
   margin-right: auto;
   width: auto;
-  max-width: 100%;
+  max-width: 80%;
   height: 300px;
   border: 4px solid black;
 }
