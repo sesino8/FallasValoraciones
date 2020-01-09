@@ -8,18 +8,25 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.0/proj4.js"></script>
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <script src="js/buscar.js"></script>
 
   <style>
     @import url("css/busqueda.css");
   </style>
+  
 
 </head>
 
 <body>
+  <div class="tittleBurguer">
+  <img></img>
+  <h3>Fallas</h3>
 
-  <h1> Fallas </h1>
+</div>
+
+<a class="accordion" onclick="esconder()"></a>
 
   <div class="busqueda">
     
@@ -41,7 +48,7 @@
       <input type="button" value="Buscar">
     </form>
 
-    <form name="imagenFalla">
+    <form id="imagenFalla">
       <input type="radio" name="radio" id="boceto" checked="checked" value="boceto_i"> Falla Mayor</input>
       <input type="radio" name="radio" id="boceto_i" value="boceto">Infantil</input><br>
     </form>

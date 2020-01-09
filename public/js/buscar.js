@@ -196,6 +196,18 @@ function getWGSCoordinates(coordenadas) {
 	return [coordenadas[1], coordenadas[0]];
 }
 
+function esconder(){
+
+	busqueda = document.getElementsByClassName("busqueda")[0];
+
+	if (busqueda.style.display != "block") {
+		busqueda.style.display = "block";
+	}else{
+		busqueda.style.display = "none";
+	}
+
+}
+
 
 window.onload = init;
 
