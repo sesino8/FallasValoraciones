@@ -4,7 +4,7 @@ $font-color: #ddd;
 
 $enterprise: "";
 $logo: "../media/fallas.png";
-$logoBoton: "";
+$logoBoton: "../media/barras.png";
 
 @if ($enterprise==cthulhu) {
   $backgroundColor: rgb(46, 97, 66);
