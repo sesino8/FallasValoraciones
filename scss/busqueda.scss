@@ -108,9 +108,9 @@ form {
   margin-top: 5%;
 
   .celdas {
-    width: 70%;
+    width: 80%;
     height: 600px;
-    margin: 15%;
+    margin: 10%;
     box-shadow: 11px 8px 17px -2px rgba(0,0,0,0.75);
     border: 1px solid black;
 
@@ -192,7 +192,14 @@ form {
   .accordion {
     visibility: visible;
   }
+  .celdas{
+    width: 70% !important;
+    margin: 2% !important;
+  }
   .busqueda {
     display: none;
+  }
+  #mapa{
+    top: 10%;
   }
 }
