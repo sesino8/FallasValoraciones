@@ -163,11 +163,16 @@ form input {
   }
 
   .resultados {
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
   }
   .resultados .celdas {
     width: 80%;
     height: 500px;
+    margin: 2%;
   }
   .resultados .celdas h4 {
     font-size: 15px;
