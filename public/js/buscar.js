@@ -112,12 +112,14 @@ function buscar() {
 function valoracion(idFalla, valoracion) {
 
 
-
+	/*Lo que haria yo abajo, seria una condicion de que busque si esa falla ha sido puntuada 
+	y si lo ha sido por esta ip, si es asi entonces procederemos a hacer un if(falla ha sido puntuada)
+	{revisa el valor de la puntuacion y rellena las estrellas}else {sigue cn rellenar estrellas}*/
 
 
 }
 
-function colorEstrellaPulsada(ev, index) {
+async function colorEstrellaPulsada(ev, index) {
 
 	var estrellas = document.querySelectorAll(`[  data-falla-id = '${ev.dataset.fallaId}' ]`);
 	var index = ev.dataset.index;
@@ -131,6 +133,10 @@ function colorEstrellaPulsada(ev, index) {
 	for (let i = 0; i < index; i++) {
 		estrellas[i].style.color = "yellow";
 	}
+
+	ip = await getIp();
+
+	puntuar(ev.dataset.fallaId, ev.dataset.index, ip);
 }
 
 
@@ -196,13 +202,13 @@ function getWGSCoordinates(coordenadas) {
 	return [coordenadas[1], coordenadas[0]];
 }
 
-function esconder(){
+function esconder() {
 
 	busqueda = document.getElementsByClassName("busqueda")[0];
 
 	if (busqueda.style.display != "block") {
 		busqueda.style.display = "block";
-	}else{
+	} else {
 		busqueda.style.display = "none";
 	}
 
@@ -211,4 +217,35 @@ function esconder(){
 
 window.onload = init;
 
+
+
+function recogerIdMongoFalla(id) {
+	fetch('/puntuaciones/' + id, {
+		method: "GET"
+	}).then(function (response) {
+		return response.json();
+	})
+		.then(function (falla) {
+			console.log(falla);
+		});
+
+}
+
+function puntuar(idFalla, value, ip) {
+	fetch('/puntuaciones/' + idFalla + "/" + value + "/" + ip, {
+		method: "POST"
+	}).then(function (response) {
+		return response.json();
+	})
+		.then(function (falla) {
+			console.log(falla);
+		});
+
+}
+
+async function getIp() {
+	let ipJson = await fetch('https://api6.ipify.org?format=json');
+	let json = await ipJson.json();
+	return json.ip;
+}
 
