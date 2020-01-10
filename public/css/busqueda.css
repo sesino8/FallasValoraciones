@@ -29,7 +29,6 @@ body {
   height: 50px;
   content: url("../media/barras.png");
   visibility: hidden;
-  position: absolute;
 }
 
 h1 {
