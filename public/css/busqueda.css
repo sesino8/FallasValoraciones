@@ -162,9 +162,18 @@ form input {
     visibility: visible;
   }
 
-  .celdas {
-    width: 70% !important;
-    margin: 2% !important;
+  .resultados {
+    display: block;
+  }
+  .resultados .celdas {
+    width: 80%;
+    height: 500px;
+  }
+  .resultados .celdas h4 {
+    font-size: 15px;
+  }
+  .resultados .celdas .bntUbicacion {
+    font-size: 15px;
   }
 
   .busqueda {

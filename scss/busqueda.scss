@@ -192,10 +192,21 @@ form {
   .accordion {
     visibility: visible;
   }
-  .celdas{
-    width: 70% !important;
-    margin: 2% !important;
+  
+  .resultados{
+    display: block;
+    .celdas{
+      width: 80% ;
+      height: 500px ;
+      h4{
+        font-size: 15px ;
+      }
+      .bntUbicacion {
+        font-size: 15px ;
+      }
+    }
   }
+  
   .busqueda {
     display: none;
   }
