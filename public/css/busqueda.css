@@ -157,14 +157,14 @@ form input {
   display: block;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 850px) {
   .accordion {
     visibility: visible;
   }
 
   .resultados {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%;
