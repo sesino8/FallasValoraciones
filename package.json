@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "css-star-rating": "^1.2.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "ipware": "^2.0.0",
     "leaflet": "^1.6.0",
     "mongodb": "^3.4.0",
